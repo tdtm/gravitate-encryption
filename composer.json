@@ -1,5 +1,5 @@
 {
-  "name": "tdtm/gravitate-encryptionon",
+  "name": "tdtm/gravitate-encryption",
   "description": "Bugfix+Feature fork from Gravitate's original plugin.",
   "keywords": ["wordpress", "plugin", "roots", "encryption"],
   "minimum-stability": "dev",

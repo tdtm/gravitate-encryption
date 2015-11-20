@@ -1,0 +1,16 @@
+{
+  "name": "tdtm/gravitate-encryptionon",
+  "description": "Bugfix+Feature fork from Gravitate's original plugin.",
+  "keywords": ["wordpress", "plugin", "roots", "encryption"],
+  "minimum-stability": "dev",
+  "authors": [
+    {
+      "twitter": "@t_dtm"
+    }
+  ],
+  "type": "wordpress-plugin",
+  "require": {
+    "php": ">=5.5.0",
+    "composer/installers": "~1.0"
+  }
+}

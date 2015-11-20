@@ -3,6 +3,7 @@
   "description": "Bugfix+Feature fork from Gravitate's original plugin.",
   "keywords": ["wordpress", "plugin", "roots", "encryption"],
   "minimum-stability": "dev",
+  "version": "1.1.0",
   "authors": [
     {
       "twitter": "@t_dtm"

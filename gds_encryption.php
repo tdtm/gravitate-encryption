@@ -4,7 +4,7 @@
 Plugin Name: Gravitate Encryption
 Plugin URI: http://www.gravitatedesign.com/blog/wordpress-and-gravity-forms/
 Description: This plugin allows the data stored by Gravity forms and other Plugins to be Encrypted and even sent to another database if needed. The Plugin allows for Symmetric and A-Semmetric Encryption.
-Version: 1.0.4
+Version: 1.1.0
 Author: Gravitate
 Author URI: http://www.gravitatedesign.com
 */
@@ -248,7 +248,7 @@ class GDS_Encryption_Class {
 			}
 			//-->
 		</script>
-		<form action="<?php echo $page_link;?>?page=gds-encryption-custom-submenu-page" method="post" name="submit_keys" id="submit_keys">
+		<form action="<?php echo $page_link; ?>?page=gds-encryption-custom-submenu-page" method="post" name="submit_keys" id="submit_keys">
 			<input type="hidden" value="" name="keys_email" id="keys_email">
 			<input type="hidden" value="" name="keys_type" id="keys_type">
 		</form>
@@ -262,7 +262,7 @@ class GDS_Encryption_Class {
 				<div class="updated"><p>Settings Saved Successfully!</p></div> <?php } ?>
 			<?php if ( $update && $update === 'error' ) { ?>
 				<div class="error"><p>Error Saving Settings to Database. Please try again.</p></div> <?php } ?>
-			<form action="<?php echo $page_link;?>?page=gds-encryption-custom-submenu-page" method="post">
+			<form action="<?php echo $page_link; ?>?page=gds-encryption-custom-submenu-page" method="post">
 				<input type="hidden" value="update" name="action">
 				<table class="form-table">
 					<tbody>
@@ -299,7 +299,8 @@ class GDS_Encryption_Class {
 					<tr id="public_key_container" valign="top">
 						<th scope="row"><label for="public_key">Public Key (ONLY)</label></th>
 						<td>
-							<textarea id="public_key" name="public_key" style="width: 520px; height: 260px;"><?php echo $form_fields['public_key'];?></textarea>
+							<textarea id="public_key" name="public_key"
+							          style="width: 520px; height: 260px;"><?php echo $form_fields['public_key']; ?></textarea>
 						</td>
 					</tr>
 					<tr id="private_key_container" valign="top">
@@ -307,7 +308,7 @@ class GDS_Encryption_Class {
 								Application</label></th>
 						<td>
 							<textarea id="private_key" name="private_key"
-							          style="width: 520px; height: 300px;"><?php echo $form_fields['private_key'];?></textarea>
+							          style="width: 520px; height: 300px;"><?php echo $form_fields['private_key']; ?></textarea>
 							<?php if ( $openssl_available ) { ?><a class="button" href="javascript:gds_encryption_generate_keys(1);">Auto Create
 								Keys</a><?php } ?>
 						</td>
@@ -316,7 +317,7 @@ class GDS_Encryption_Class {
 						<th scope="row"><label for="encryption_key">Encryption Key</label></th>
 						<td>
 							<span style="font-size: 10px; color: gray;">Should be between 8-32 characters and use Number, Letters, and Symbols</span><br/>
-							<input type="text" id="encryption_key" name="encryption_key" maxlength="32" value="<?php echo $form_fields['encryption_key'];?>"/>
+							<input type="text" id="encryption_key" name="encryption_key" maxlength="32" value="<?php echo $form_fields['encryption_key']; ?>"/>
 							&nbsp;
 							<?php if ( $mcrypt_available ) { ?><a class="button" href="javascript:gds_encryption_generate_keys(2);">Auto Create
 								Key</a><?php } ?>
@@ -362,70 +363,70 @@ class GDS_Encryption_Class {
 						<th scope="row"><label for="remote_database_host">Remote Database Host</label></th>
 						<td>
 							<input type="text" id="remote_database_host" name="remote_database_host" maxlength="200"
-							       value="<?php echo $form_fields['remote_database_host'];?>"/>
+							       value="<?php echo $form_fields['remote_database_host']; ?>"/>
 						</td>
 					</tr>
 					<tr id="remote_database_port_container" valign="top">
 						<th scope="row"><label for="remote_database_port">Remote Database Port</label></th>
 						<td>
 							<input type="text" id="remote_database_port" name="remote_database_port" maxlength="10"
-							       value="<?php echo $form_fields['remote_database_port'];?>"/>
+							       value="<?php echo $form_fields['remote_database_port']; ?>"/>
 						</td>
 					</tr>
 					<tr id="remote_database_name_container" valign="top">
 						<th scope="row"><label for="remote_database_name">Remote Database Name</label></th>
 						<td>
 							<input type="text" id="remote_database_name" name="remote_database_name" maxlength="200"
-							       value="<?php echo $form_fields['remote_database_name'];?>"/>
+							       value="<?php echo $form_fields['remote_database_name']; ?>"/>
 						</td>
 					</tr>
 					<tr id="remote_database_username_container" valign="top">
 						<th scope="row"><label for="remote_database_username">Remote Database Username</label></th>
 						<td>
 							<input type="text" autocomplete="off" id="remote_database_username" name="remote_database_username" maxlength="200"
-							       value="<?php echo $form_fields['remote_database_username'];?>"/>
+							       value="<?php echo $form_fields['remote_database_username']; ?>"/>
 						</td>
 					</tr>
 					<tr id="remote_database_password_container" valign="top">
 						<th scope="row"><label for="remote_database_password">Remote Database Password</label></th>
 						<td>
 							<input type="password" autocomplete="off" id="remote_database_password" name="remote_database_password" maxlength="200"
-							       value="<?php echo $form_fields['remote_database_password'];?>"/>
+							       value="<?php echo $form_fields['remote_database_password']; ?>"/>
 						</td>
 					</tr>
 					<tr id="remote_database_table_container" valign="top">
 						<th scope="row"><label for="remote_database_table">Remote Database Table Name</label></th>
 						<td>
 							<input type="text" autocomplete="off" id="remote_database_table" name="remote_database_table" maxlength="200"
-							       value="<?php echo $form_fields['remote_database_table'];?>"/>
+							       value="<?php echo $form_fields['remote_database_table']; ?>"/>
 						</td>
 					</tr>
 					<tr id="remote_database_table_id_container" valign="top">
 						<th scope="row"><label for="remote_database_table_id">Remote Database Table Primary ID Field Name</label></th>
 						<td>
 							<input type="text" autocomplete="off" id="remote_database_table_id" name="remote_database_table_id" maxlength="200"
-							       value="<?php echo $form_fields['remote_database_table_id'];?>"/>
+							       value="<?php echo $form_fields['remote_database_table_id']; ?>"/>
 						</td>
 					</tr>
 					<tr id="remote_database_table_parent_id_container" valign="top">
 						<th scope="row"><label for="remote_database_table_parent_id">Remote Database Table Parent ID Field Name</label></th>
 						<td>
 							<input type="text" autocomplete="off" id="remote_database_table_parent_id" name="remote_database_table_parent_id" maxlength="200"
-							       value="<?php echo $form_fields['remote_database_table_parent_id'];?>"/>
+							       value="<?php echo $form_fields['remote_database_table_parent_id']; ?>"/>
 						</td>
 					</tr>
 					<tr id="remote_database_table_value_container" valign="top">
 						<th scope="row"><label for="remote_database_table_value">Remote Database Table Value Field Name</label></th>
 						<td>
 							<input type="text" autocomplete="off" id="remote_database_table_value" name="remote_database_table_value" maxlength="200"
-							       value="<?php echo $form_fields['remote_database_table_value'];?>"/>
+							       value="<?php echo $form_fields['remote_database_table_value']; ?>"/>
 						</td>
 					</tr>
 					<tr id="remote_database_table_group_container" valign="top">
 						<th scope="row"><label for="remote_database_table_group">Remote Database Table Group Field Name</label></th>
 						<td>
 							<input type="text" autocomplete="off" id="remote_database_table_group" name="remote_database_table_group" maxlength="200"
-							       value="<?php echo $form_fields['remote_database_table_group'];?>"/>
+							       value="<?php echo $form_fields['remote_database_table_group']; ?>"/>
 						</td>
 					</tr>
 					</tbody>
@@ -502,54 +503,6 @@ class GDS_Encryption_Class {
 			</div>
 		<?php
 		}
-	}
-
-	/**
-	 * Replaces failed encrypt() method.
-	 * @param $value
-	 *
-	 * @return bool|string
-	 */
-	public static function ex_encrypt($value)
-	{
-		global $gds_encryption_class;
-
-		if ($gds_encryption_class == null)
-		{
-			$gds_encryption_class = new GDS_Encryption_Class();
-			GDS_Encryption_Class::init();
-		}
-
-		$options = unserialize( get_option( 'gds_encryption' ) );
-
-		///////////////////////////////////////////////////////////////////////////////////////////////////
-		// Symmetric Encryption
-		///////////////////////////////////////////////////////////////////////////////////////////////////
-
-		if ( $options['encription_type'] == 'symmetric' ) {
-			$salt     = "djkns(235mk^p";
-			$password = "7%r?1C" . trim( $options['encryption_key'] ) . "jr-3";
-			$key      = hash( 'SHA256', $salt . $password, true );
-			srand();
-			$iv = mcrypt_create_iv( mcrypt_get_iv_size( MCRYPT_RIJNDAEL_128, MCRYPT_MODE_CBC ), MCRYPT_RAND );
-			if ( strlen( $iv_base64 = rtrim( base64_encode( $iv ), '=' ) ) != 22 ) {
-				return false;
-			}
-			$encrypted = base64_encode( mcrypt_encrypt( MCRYPT_RIJNDAEL_128, $key, $value . md5( $value ), MCRYPT_MODE_CBC, $iv ) );
-			$value     = "enx2:" . $iv_base64 . $encrypted;
-		} else if ( $options['encription_type'] == 'asymmetric' ) {
-			openssl_seal( $value, $encrypted, $ekey, [ openssl_get_publickey( trim( $options['public_key'] ) ) ] );
-			$ekey = base64_encode( $ekey[0] );
-
-			$value = "enx1:" . $ekey . ':' . base64_encode( $encrypted );
-		} else if ( $options['encription_type'] == 'encryption_weak' ) {
-			$key   = "7%r?1C" . trim( $options['encryption_key'] ) . "jr-3";
-			$value = base64_encode( $value );
-			$value = "enx3:" . base64_encode( substr( $value, 0, 3 ) . substr( $value, 0, - 5 ) . substr( base64_encode( $key ), 0, 6 ) . substr( $value,
-						- 5 ) . substr( $value, - 3 ) );
-		}
-
-		return $value;
 	}
 
 	public function encrypt( $value ) {
@@ -734,6 +687,7 @@ class GDS_Encryption_Class {
 
 	public function get_from_remote( $id ) {
 		global $wpdb;
+		$value = null;
 
 		$options = unserialize( get_option( 'gds_encryption' ) );
 
@@ -772,10 +726,58 @@ class GDS_Encryption_Class {
 			}
 		}
 	}
+
+	/**
+	 * Replaces failed encrypt() method. Temporary as TODO entire plugin shall be overhauled to remove strict errors and clunky function prefixes.
+	 *
+	 * @param $value
+	 *
+	 * @return bool|string
+	 */
+	public static function ex_encrypt( $value ) {
+		//Added: init GDS
+		global $gds_encryption_class;
+
+		if ( $gds_encryption_class == null ) {
+			$gds_encryption_class = new GDS_Encryption_Class();
+			GDS_Encryption_Class::init();
+		}
+		//end addition
+
+		$options = unserialize( get_option( 'gds_encryption' ) );
+
+		///////////////////////////////////////////////////////////////////////////////////////////////////
+		// Symmetric Encryption
+		///////////////////////////////////////////////////////////////////////////////////////////////////
+
+		if ( $options['encription_type'] == 'symmetric' ) {
+			$salt     = "djkns(235mk^p";
+			$password = "7%r?1C" . trim( $options['encryption_key'] ) . "jr-3";
+			$key      = hash( 'SHA256', $salt . $password, true );
+			srand();
+			$iv = mcrypt_create_iv( mcrypt_get_iv_size( MCRYPT_RIJNDAEL_128, MCRYPT_MODE_CBC ), MCRYPT_RAND );
+			if ( strlen( $iv_base64 = rtrim( base64_encode( $iv ), '=' ) ) != 22 ) {
+				return false;
+			}
+			$encrypted = base64_encode( mcrypt_encrypt( MCRYPT_RIJNDAEL_128, $key, $value . md5( $value ), MCRYPT_MODE_CBC, $iv ) );
+			$value     = "enx2:" . $iv_base64 . $encrypted;
+		} else if ( $options['encription_type'] == 'asymmetric' ) {
+			openssl_seal( $value, $encrypted, $ekey, [ openssl_get_publickey( trim( $options['public_key'] ) ) ] );
+			$ekey = base64_encode( $ekey[0] );
+
+			$value = "enx1:" . $ekey . ':' . base64_encode( $encrypted );
+		} else if ( $options['encription_type'] == 'encryption_weak' ) {
+			$key   = "7%r?1C" . trim( $options['encryption_key'] ) . "jr-3";
+			$value = base64_encode( $value );
+			$value = "enx3:" . base64_encode( substr( $value, 0, 3 ) . substr( $value, 0, - 5 ) . substr( base64_encode( $key ), 0, 6 ) . substr( $value,
+						- 5 ) . substr( $value, - 3 ) );
+		}
+
+		return $value;
+	}
 }
 
-function gds_encryption_custom_submenu_page()
-{
+function gds_encryption_custom_submenu_page() {
 	if ( class_exists( 'GDS_Class' ) ) {
 		global $gds_class;
 
@@ -800,14 +802,12 @@ $gds_encryption_class = new GDS_Encryption_Class();
 
 $gds_encryption_class->init();
 
-function gds_encryption_class_create_menu()
-{
+function gds_encryption_class_create_menu() {
 	global $gds_encryption_class;
 	$gds_encryption_class->gds_create_menu();
 }
 
-function gds_encryption_custom_submenu_page_callback()
-{
+function gds_encryption_custom_submenu_page_callback() {
 	global $gds_encryption_class;
 	$gds_encryption_class->custom_submenu_page_callback();
 }
@@ -823,7 +823,6 @@ function gds_encryption_gform_save_field_value( $value, $lead, $field, $form ) {
 }
 
 function gds_encryption_gform_get_field_value( $value, $lead, $field, $input_id ) {
-//	xdebug_break();
 	global $gds_encryption_class;
 
 	return $gds_encryption_class->gform_get_field_value( $value, $lead, $field, $input_id );

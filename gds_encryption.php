@@ -823,7 +823,6 @@ function gds_encryption_gform_save_field_value( $value, $lead, $field, $form ) {
 }
 
 function gds_encryption_gform_get_field_value( $value, $lead, $field, $input_id ) {
-//	xdebug_break();
 	global $gds_encryption_class;
 
 	return $gds_encryption_class->gform_get_field_value( $value, $lead, $field, $input_id );
